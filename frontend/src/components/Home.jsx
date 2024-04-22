@@ -11,7 +11,13 @@ const Home = () => {
       .then((res) => res.json())
       .then((data) => {
         console.log(data, "userData");
-        setData(data.data);
+        // Adding active status and role to each user
+        const modifiedData = data.data.map((user) => ({
+          ...user,
+          active: true, // You can assign this dynamically based on your logic
+          role: "user" // You can assign this dynamically based on your logic
+        }));
+        setData(modifiedData);
       });
   }, []);
 
@@ -27,7 +33,8 @@ const Home = () => {
               <th scope="col">First</th>
               <th scope="col">Email</th>
               <th scope="col">Date Created</th>
-              
+              <th scope="col">Active</th>
+              <th scope="col">Role</th>
             </tr>
           </thead>
           <tbody>
@@ -36,7 +43,9 @@ const Home = () => {
                 <th scope="row">{index + 1}</th>
                 <td>{res.name}</td>
                 <td>{res.email}</td>
-                   <td>{new Date(res.dateCreated).toLocaleDateString()}</td> 
+                <td>{new Date(res.dateCreated).toLocaleDateString()}</td> 
+                <td>{res.active ? "Yes" : "No"}</td> {/* Displaying active status */}
+                <td>{res.role}</td> {/* Displaying role */}
               </tr>
             ))}
           </tbody>
