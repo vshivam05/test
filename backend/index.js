@@ -49,6 +49,25 @@ app.post('/login', (req, res)=>{
     })
 })
 
+
+app.get("/getAllUser", async(req,res)=>{
+try{
+
+    const allUser = await FormDataModel.find({});
+    res.send({status:"ok",data:allUser});
+    
+}catch(e){
+
+console.log(e);
+}
+
+
+})
+
+
+
+
+
 app.listen(3001, () => {
     console.log("Server listining on http://127.0.0.1:3001");
 
