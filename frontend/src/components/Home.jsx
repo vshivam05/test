@@ -31,7 +31,7 @@ const Home = () => {
             </tr>
           </thead>
           <tbody>
-            {data.map((res, index) => ( // Added return statement here
+            {data.map((res, index) => ( // Added return statement here..
               <tr key={index}>
                 <th scope="row">{index + 1}</th>
                 <td>{res.name}</td>
