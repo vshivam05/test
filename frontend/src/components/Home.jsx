@@ -33,7 +33,7 @@ const Home = () => {
               <th scope="col">First</th>
               <th scope="col">Email</th>
               <th scope="col">Date Created</th>
-              <th scope="col">Active</th>
+              <th scope="col">Status</th>
               <th scope="col">Role</th>
             </tr>
           </thead>
@@ -44,7 +44,7 @@ const Home = () => {
                 <td>{res.name}</td>
                 <td>{res.email}</td>
                 <td>{new Date(res.dateCreated).toLocaleDateString()}</td> 
-                <td>{res.active ? "Yes" : "No"}</td> {/* Displaying active status */}
+                <td>{res.active ? "Active" : "Suspenede"}</td> {/* Displaying active status */}
                 <td>{res.role}</td> {/* Displaying role */}
               </tr>
             ))}
